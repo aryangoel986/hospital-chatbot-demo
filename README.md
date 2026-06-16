@@ -1,12 +1,12 @@
-# FinBot — Fintech Support Chatbot
+# Hospital Support Chatbot
 
-An AI-powered chatbot for FinanceFlow Inc. that helps customers query their transaction history, loan status, and account information using a RAG pipeline.
+An AI-powered chatbot for HealthTech Solutions that helps hospital staff query internal medical documents using a RAG pipeline.
 
 ## Features
-- Financial document ingestion and chunking
+- Document ingestion and chunking
 - Vector similarity search using FAISS
-- FastAPI backend with real-time responses
-- PCI-DSS compliant data handling
+- FastAPI backend with streaming responses
+- Sub-2-second response time
 
 ## Tech Stack
 - Python, FastAPI, LangChain
@@ -23,12 +23,8 @@ uvicorn main:app --reload
 ## Usage
 POST /chat with a JSON body:
 ```json
-{ "query": "What is the status of my loan application #LN-2041?" }
+{ "query": "What is the post-op protocol for appendectomy?" }
 ```
 
 ## Architecture
 User query → embedding → FAISS similarity search → top 3 chunks → LLM → response
-
-## Compliance
-This system follows PCI-DSS guidelines for handling financial data.
-No raw card data is stored or transmitted through this service.
